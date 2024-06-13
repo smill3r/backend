@@ -12,7 +12,20 @@ const resolvers = {
       }
     ) => {
       const { width, height, young, grayscale } = args;
-      const url = `https://placekeanu.com/${width}/${height}?young=${young}&grayscale=${grayscale}`;
+      let url = `https://placekeanu.com/`;
+
+      if (width) {
+        url += `${width}/`;
+      }
+      if (height) {
+        url += `${height}/`;
+      }
+      if (young) {
+        url += `y`;
+      }
+      if (grayscale) {
+        url += `g`;
+      }
       return url;
     },
   },
